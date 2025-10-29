@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Đặt vé xem phim</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="brand" data-route="/">🎬 CINEMA</div>
+        <nav class="top-nav">
+            <button class="nav-link" data-route="/catalog">🎞️ Phim</button>
+            <button class="nav-link" data-route="/showtimes">📅 Lịch chiếu</button>
+            <button class="nav-link" data-route="/cart">🛒 Giỏ vé</button>
+            <button class="nav-link" data-route="/tickets">🎫 Vé của tôi</button>
+            <button class="nav-link admin" data-route="/admin">⚙️ Quản trị</button>
+        </nav>
+    </header>
+
+    <main id="app" class="app-main" aria-live="polite"></main>
+
+    <footer class="app-footer">
+        <span>© 2025 Cinema Booking Demo</span>
+    </footer>
+
+    <div id="modal-root" class="modal-root" aria-hidden="true"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="./supabase.config.js"></script>
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
+
+
