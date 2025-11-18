@@ -57,11 +57,13 @@ async function renderUserNav(){
       adminBtn.addEventListener('click', ()=>{ location.hash = '#/admin'; });
       container.appendChild(adminBtn);
     }
-    const profileBtn = document.createElement('button');
-    profileBtn.className = 'btn';
-    profileBtn.textContent = 'Hồ sơ';
-    profileBtn.addEventListener('click', ()=>{ location.hash = '#/profile'; });
-    container.appendChild(profileBtn);
+    if (!isAdmin(sess.user)) {
+      const profileBtn = document.createElement('button');
+      profileBtn.className = 'btn';
+      profileBtn.textContent = 'Hồ sơ';
+      profileBtn.addEventListener('click', ()=>{ location.hash = '#/profile'; });
+      container.appendChild(profileBtn);
+    }
     const btn = document.createElement('button');
     btn.className = 'btn';
     btn.textContent = 'Đăng xuất';

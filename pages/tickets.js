@@ -9,9 +9,12 @@ export async function renderTickets(){
   const wrap = h('div', { class:'page' });
   const email = (sess.user.email || '').toLowerCase();
   const my = store.tickets.filter(t=> {
-    const sessionMatch = (t.owner_session||t.ownerSession)===store.sessionId;
-    const emailMatch = email && ((t.user_email||t.userEmail||'').toLowerCase()===email);
-    return sessionMatch || emailMatch;
+    const ticketEmail = (t.user_email || t.userEmail || '').toLowerCase();
+    if (ticketEmail) {
+      return ticketEmail === email;
+    }
+    // fallback cho vé cũ chưa có email
+    return (t.owner_session||t.ownerSession)===store.sessionId;
   });
   if (!my.length) {
     mount(document.getElementById('app'), h('div', { class:'section' }, [
